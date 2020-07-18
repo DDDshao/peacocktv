@@ -1,0 +1,77 @@
+description: Peacock is an American over-the-top subscription video on demand streaming service owned and operated by the Television and Streaming division of NBCUniversal, a subsidiary of Comcast.
+  
+domain: https://www.peacocktv.com
+exchange_name: PEAA
+id: 6001f14b-8f5d-4746-9256-4235ec429b99
+name: Peacock
+parser_configuration_unescaped:
+  html:
+    \/watch\/playback\/(vod|preview|clip)\/\w+:
+      datasets:
+        stream_event:
+          columns:
+            playback_title:
+             column_type: string
+             date_format: null
+             description: The title of the playback
+             path: //div[@class="playback-header__title"]
+
+            playback_info:
+             column_type: string
+             date_format: null
+             description: The detail Information of the playback
+             path: //div[@class="item playback-metadata__container-episode-metadata-info"]
+
+
+            rating:
+             column_type: string
+             date_format: null
+             description: Tv ratings
+             path: //span[@class="playback-metadata__container-info-rating next-item-separator"]/text()
+            
+            fans_rating:
+             column_type: string
+             date_format: null
+             description: Fans ratings
+             path: //span[@class="playback-metadata__container-info-fan-rating"]/text()
+
+            Category:
+             column_type: string
+             date_format: null
+             description: Types of TV dramas
+             path: //div[@class="item playback-metadata__container-info"]/span/text()
+
+            Age_rating:
+             column_type: string
+             date_format: null
+             description: The Motion Picture Association (MPA) film rating system is used in the United States and its territories to rate a film's suitability for certain audiences based on its content
+             path: //span[@class="playback-metadata__container-info--age-rating"]/text()
+
+            Current_time:
+             column_type: string
+             date_format: null
+             description: Time of playback being played
+             path: //span[@class="playback-time-elapsed__container_current-time"]/text()
+
+            Missing_time:
+             column_type: string
+             date_format: null
+             description: Total TV duration
+             path: //span[@class="playback-time-elapsed__container_missing-time"]/text()
+
+            Subtitle:
+             column_type: string
+             date_format: null
+             description: Subtitle situation
+             path: //div[@class="playback-language-settings__container-panel--subtitles"]/button[@class="playback-button long selected"]/text()
+
+            Audio:
+             column_type: string
+             date_format: null
+             description: Audio situation
+             path: //div[@class="playback-language-settings__container-panel--audio"]/button[@class="playback-button long selected"]/text()
+            
+          dependency_path: //video[contains(@src, "peacocktv.com")]
+          description: Tracking Peacock user activity when streaming shows
+          root_path: //body
+ticker: PEAA
