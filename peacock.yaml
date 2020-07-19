@@ -6,7 +6,7 @@ id: 6001f14b-8f5d-4746-9256-4235ec429b99
 name: Peacock
 parser_configuration_unescaped:
   html:
-    \/watch\/playback\/(vod|preview|clip)\/\w+:
+    \/watch\/playback\/(vod|preview|clip)\/\w+\/[^\/\s]+:
       datasets:
         stream_event:
           columns:
